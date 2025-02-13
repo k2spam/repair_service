@@ -1,85 +1,62 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import RSHeader from './components/RSHeader.vue';
+import RSFooter from './components/RSFooter.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
+    <RSHeader 
+      logo="/src/assets/images/logo.webp"
+      title="Сервисный центр по ремонту техники Bosch"
+      image="/src/assets/images/bosch-small.jpg"
+      phone="+74951426588"
+    />
+      <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+      </nav> -->
+  <div class="main">
+    <RouterView />
+  </div>
+  <RSFooter phone="+74951426588"/>
 </template>
 
-<style scoped>
+<style>
+:root {
+  --button-color: rgb(0, 148, 254);
+  --button-bg-color: rgba(148, 148, 148, 0.10);
+  --text-color: rgb(50, 50, 50);
+  --light-grey: rgb(200, 200, 200);
+}
+
+html, body, #app {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    font-family: "Montserrat", serif;
+}
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer"
+}
+
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  grid-area: header;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.main {
+  grid-area: main;
 }
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+footer {
+  grid-area: footer;
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
