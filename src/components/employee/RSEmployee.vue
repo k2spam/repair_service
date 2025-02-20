@@ -47,4 +47,21 @@ caption.rsemp {
 .rsemp p span{
     padding-right: 5px;
 }
+@media (max-width: 800px) {
+    caption.rsemp {
+        width: 46vw;
+        margin-left: 4vw;
+        text-align: left;
+    }
+    .rsemp img {
+        width: 50px;
+        border-radius: 50%;
+    }
+    .rsemp h5 {
+        font-size: 15px;
+    }
+    .rsemp p {
+        font-size: 13px;
+    }
+}
 </style>

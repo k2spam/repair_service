@@ -1,20 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import RSHeader from './components/RSHeader.vue';
+import { RouterView } from 'vue-router'
 import RSFooter from './components/RSFooter.vue';
 </script>
 
 <template>
-    <RSHeader 
-      logo="/src/assets/images/logo.webp"
-      title="Сервисный центр по ремонту техники Bosch"
-      image="/src/assets/images/bosch-small.jpg"
-      phone="+74951426588"
-    />
-      <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav> -->
   <div class="main">
     <RouterView />
   </div>
@@ -29,21 +18,27 @@ import RSFooter from './components/RSFooter.vue';
   --light-grey: rgb(200, 200, 200);
 }
 
+header, main, footer {
+  max-width: 100vw;
+  min-width: 0;
+}
+
 html, body, #app {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    min-height: 100%;
-    font-family: "Montserrat", serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", serif;
 }
 #app {
   display: grid;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
   grid-template-rows: auto 1fr auto;
   grid-template-areas: 
     "header"
     "main"
-    "footer"
+    "footer";
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 header {
@@ -56,7 +51,13 @@ footer {
   grid-area: footer;
 }
 .wrapper {
-  max-width: 1000px;
+  max-width: 1270px;
   margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  #app {
+    min-height: 100svh;
+  }
 }
 </style>

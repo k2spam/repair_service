@@ -12,34 +12,38 @@ const decoratedPhone = computed(() => {
 
 <template>
     <footer class="rsfooter">
-        <section>
-            <img src="/src/assets/images/logo.webp" alt="">
-            <span>Сервисный центр техники Bosch, 2025.</span>
-            <span>Все права защищены.</span>
-        </section>
-        <section>
-            <span>ИНН 644305059470</span>
-            <span>Огрнип 323645700068688</span>
-        </section>
-        <section>
-            <a :href="'tel:'+phone">{{decoratedPhone}}</a>
-            <span>Работаем ежедневно с 9:00 до 22:00</span>
-            <span>Прием заказов без выходных</span>
-        </section>
+        <div class="wrapper">
+            <section>
+                <img src="/images/logo.webp" alt="">
+                <span>Сервисный центр техники Bosch, 2025.</span>
+                <span>Все права защищены.</span>
+            </section>
+            <section>
+                <span>ИНН 644305059470</span>
+                <span>Огрнип 323645700068688</span>
+            </section>
+            <section>
+                <a :href="'tel:'+phone">{{decoratedPhone}}</a>
+                <span>Работаем ежедневно с 9:00 до 22:00</span>
+                <span>Прием заказов без выходных</span>
+            </section>
+        </div>
     </footer>
 </template>
 
 <style scoped>
 footer.rsfooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
     padding: 20px 35px;
-    background-image: url('@/assets/images/services-bg.jpg');
+    background-image: url('/images/services-bg.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     border-top: 2px solid var(--light-grey);
+}
+.rsfooter .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 .rsfooter section {
     display: flex;
@@ -61,5 +65,26 @@ footer.rsfooter {
     text-decoration: none;
     color: var(--button-color);
     font-size: 30px;
+}
+@media (max-width: 800px) {
+    footer.rsfooter {
+        padding: 20px 20px;
+    }
+    .rsfooter .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .rsfooter section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .rsfooter span {
+        display: inline-block;
+        padding: 10px 0;
+    }
 }
 </style>

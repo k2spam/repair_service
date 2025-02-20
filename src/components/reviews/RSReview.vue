@@ -54,4 +54,24 @@ article.rsrew {
     font-size: 15px;
     text-align: justify;
 }
+@media (max-width: 800px) {
+    article.rsrew {
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+        align-items: center;
+    }
+    .rsrew div:nth-child(1) span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        border-radius: 50%;
+    }
+    .rsrew div:nth-child(2) {
+        padding: 20px 0 0 0;
+    }
+}
 </style>

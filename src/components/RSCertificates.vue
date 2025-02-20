@@ -1,29 +1,32 @@
 <script setup lang="ts">
 defineProps<{
-    title: string
-    imgs: string[]
+    data: RSCerts
 }>()
 </script>
 
 <template>
     <section class="rscerts">
-        <h3>{{ title }}</h3>
-        <article>
-            <img v-for="(img, k) in imgs" :key="'cert'+k" :src="img" alt="">
-        </article>
+        <div class="wrapper">
+            <h3>{{ data.title }}</h3>
+            <article>
+                <img v-for="(img, k) in data.imgs" :key="'cert'+k" :src="img" alt="">
+            </article>
+        </div>
     </section>
 </template>
 
 <style scoped>
 section.rscerts {
-    display: flex;
-    justify-content: space-between;
     padding: 100px 40px;
     border-top: 2px solid var(--light-grey);
-    background-image: url('@/assets/images/bg-certificates.jpg');
+    background-image: url('/images/bg-certificates.jpg');
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+}
+.rscerts .wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 .rscerts h3 {
     max-width: 370px;
@@ -33,5 +36,19 @@ section.rscerts {
 }
 .rscerts img {
     margin: 0 5px;
+}
+@media (max-width: 800px) {
+    section.rscerts {
+        max-width: 100vw;
+        padding: 10px 20px;
+    }
+    .rscerts .wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .rscerts img {
+        width: 27vw;
+    }
 }
 </style>

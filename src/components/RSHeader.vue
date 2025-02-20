@@ -3,28 +3,30 @@ import { computed } from 'vue';
 import RSCall from '@/components/RSCall.vue';
 
 const props = defineProps<{
-    logo: string
-    title: string
-    image: string
-    phone: string
+    data: Header
+    small?: boolean
 }>()
 
 const decoratedPhone = computed(() => { 
-    return props.phone.replace(/[\S](\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, "+7 ($2) $3-$4-$5")
+    return props.data.phone.replace(/[\S](\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, "+7 ($2) $3-$4-$5")
 })
 </script>
 
 <template>
-    <header>
-        <section class="rsheader" :style='"background-image: url("+image+");"'>
+    <header :class="[small ? 'small' : '']">
+        <section class="rsheader" :style='"background-image: url("+data.image+");"'>
             <div class="wrapper">
-                <div class="logo_wrapper">
-                    <img :src="logo" alt="">
-                    <a class="link" :href='"tel:"+phone'>{{ decoratedPhone }}</a>
-                    <a class="button" :href='"tel:"+phone'>Позвонить</a>
-                </div>
-                <h1>{{ title }}</h1>
-                <div class="call">
+                <article>
+                    <div class="logo_wrapper">
+                        <RouterLink to="/">
+                            <img :src="data.logo" alt="">
+                        </RouterLink>
+                        <a class="link" :href='"tel:"+data.phone'>{{ decoratedPhone }}</a>
+                        <a class="button" :href='"tel:"+data.phone'>Позвонить</a>
+                    </div>
+                    <h1 v-if="!small">{{ data.title }}</h1>
+                </article>
+                <div v-if="!small" class="call">
                     <RSCall 
                         title="Сервисный центр Bosch" 
                         description="Обслуживание и все виды ремонтных работ. Оставьте номер телефона, и специалист перезвонит через 10 минут." 
@@ -42,13 +44,26 @@ header {
 
 section.rsheader {
     height: 100vh;
-    background-position: 50% 0;
+    background-position: 52.5% 0;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.rsheader .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 .rsheader img {
     width: 230px;
+}
+
+header.small {
+    height: 145px;
+}
+
+.small .rsheader {
+    height: 145px;
 }
 
 .rsheader h1 {
@@ -78,12 +93,48 @@ section.rsheader {
     align-items: center;
     max-width: 1000px;
     padding: 30px 0 10px;
+    margin: 0 auto;
 }
 
 .rsheader .call {
     display: flex;
-    height: 70vh;
-    align-items: center;
+    align-items: end;
     justify-content: space-around;
+    margin: 0 0 30px;
+}
+
+@media (max-width: 800px) {
+    header {
+        height: 800px;
+    }
+    section.rsheader {
+        height: 800px;
+        background-size: cover;
+    }
+    header.small {
+        height: 120px;
+    }
+    .small .rsheader {
+        background-size: 200%;
+        background-position: 50% 0;
+        height: 120px;
+    }
+    .rsheader .link {
+        display: none;
+    }    
+    .rsheader img {
+        width: 40vw;
+        margin-left: 20px;
+    }
+    .rsheader .button {
+        margin-right:20px;
+    }
+    .rsheader h1 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+    .rsheader .call {
+        margin: 0 0 10px;
+    }
 }
 </style>
