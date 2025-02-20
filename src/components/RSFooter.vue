@@ -24,8 +24,7 @@ const decoratedPhone = computed(() => {
             </section>
             <section>
                 <a :href="'tel:'+phone">{{decoratedPhone}}</a>
-                <span>Работаем ежедневно с 9:00 до 22:00</span>
-                <span>Прием заказов без выходных</span>
+                <span>Работаем без выходных с 9:00 до 21:00.</span>
             </section>
         </div>
     </footer>

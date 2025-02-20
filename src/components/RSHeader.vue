@@ -120,14 +120,17 @@ header.small {
         height: 120px;
     }
     .rsheader .link {
-        display: none;
+        /* display: none; */
+        font-size: 14px;
     }    
     .rsheader img {
-        width: 40vw;
-        margin-left: 20px;
+        width: 24vw;
+        margin-left: 15px;
     }
     .rsheader .button {
-        margin-right:20px;
+        margin-right:15px;
+        font-size: 14px;
+        padding: 12px;
     }
     .rsheader h1 {
         font-size: 20px;
