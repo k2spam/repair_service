@@ -9,7 +9,6 @@ import RSCertificates from '@/components/RSCertificates.vue';
 import RSEmployeeList from '@/components/employee/RSEmployeeList.vue';
 import RSReviews from '@/components/reviews/RSReviews.vue';
 import RSSupport from '@/components/RSSupport.vue';
-
 import main from '@/data/main.json'
 </script>
 
@@ -19,7 +18,7 @@ import main from '@/data/main.json'
     <RSItemsList :data="main.goods"/>
     <RSAdventage :item="main.adventage"/>
     <RSResolve :data="main.resolve"/>
-    <RSAck />
+    <RSAck/>
     <RSCertificates :data="main.certs"/>
     <RSEmployeeList :items="main.employees"/>
     <RSReviews :data="main.reviews"/>

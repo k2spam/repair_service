@@ -2,6 +2,8 @@
 defineProps<{
     data: Selector
 }>()
+
+const list = defineModel()
 </script>
 
 <template>
@@ -9,7 +11,7 @@ defineProps<{
         <h3>{{ data.title }}</h3>
         <article>
             <label v-for="(item, k) in data.items" :key="k+item">
-                <input type="checkbox">
+                <input type="checkbox" v-model="list" :value="item">
                 <span>{{ item }}</span>
             </label>
         </article>

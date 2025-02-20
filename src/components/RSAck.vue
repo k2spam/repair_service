@@ -1,20 +1,49 @@
 <script setup lang="ts">
-defineProps<{
+import { ref } from 'vue';
+import RSDialog from '@/components/common/RSDialog.vue';
+
+const props = defineProps<{
     small?: boolean
+    ack?: Ack
+    item?: string
+    type?: string
 }>()
+
+const phone = ref('')
+const dialog = ref(false)
+const closeDialog = () => dialog.value = false
+
+const call = () => {
+    if(phone.value != '' && phone.value.length === 18){
+        fetch("https://bosch-original.ru/order", {
+            mode: "no-cors",
+            method: "POST",
+            body: JSON.stringify({
+                phone: phone.value.replace(/[\(\)\s-]/g, ''),
+                item: props.item ?? "",
+                itemtype: props.type ?? "",
+                problems: props.ack?.problems.join(",") ?? "",
+                repair: props.ack?.repair.join(",") ?? ""
+            })
+        })
+        dialog.value = true
+    }
+}
+
 </script>
 
 <template>
+    <RSDialog :visible="dialog" @close="closeDialog"/>
     <section class="rsack" :class="[small ? 'small': '']">
         <div class="wrapper">
             <article>
                 <h3>Спросите эксперта Bosch</h3>
-                <p>Оставьте номер телефона, и специалист перезвонит через 10 минут</p>
+                <p>Оставьте номер телефона, и специалист перезвонит в течение 10 минут</p>
             </article>
             <article>
                 <span>
-                    <input type="text" placeholder="+7 (___) ___-__-__">
-                    <input type="button" value="Отправить">
+                    <input type="tel" v-model="phone" v-mask="'+7 (###) ###-##-##'" placeholder="+7 (___) ___-__-__">
+                    <input type="button" value="Отправить" @click="call">
                 </span>
                 <p>Нажимая кнопку &laquo;Отправить&raquo;, вы соглашаетесь на обработку персональных данных и подтверждаете совершеннолетие в соответствии с  условиями.</p>
             </article>
@@ -73,7 +102,7 @@ section.rsack {
     margin: 0;
     font-size: 14px;
 }
-.rsack input[type="text"] {
+.rsack input[type="tel"] {
     padding: 10px;
     font-size: 15px;
     outline: none;
