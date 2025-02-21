@@ -21,6 +21,8 @@ const list = defineModel()
 <style scoped>
 section.selector {
     padding: 0 55px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .selector h3 {
     font-size: 20px;
