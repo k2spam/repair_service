@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import RSAbout from '@/components/RSAbout.vue';
 import RSHeader from '@/components/RSHeader.vue';
+import RSAbout from '@/components/about/RSAbout.vue';
 import main from '@/data/main.json'
 </script>
 
