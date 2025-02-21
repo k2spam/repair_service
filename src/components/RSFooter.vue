@@ -21,6 +21,9 @@ const decoratedPhone = computed(() => {
             <section>
                 <span>ИНН 644305059470</span>
                 <span>Огрнип 323645700068688</span>
+                <span>
+                    <RouterLink class="small" to="/about">Подробнее...</RouterLink>
+                </span>
             </section>
             <section>
                 <a :href="'tel:'+phone">{{decoratedPhone}}</a>
@@ -64,6 +67,12 @@ footer.rsfooter {
     text-decoration: none;
     color: var(--button-color);
     font-size: 30px;
+}
+.rsfooter a.small {
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: var(--button-color);
+    font-size: 15px;
 }
 @media (max-width: 800px) {
     footer.rsfooter {
