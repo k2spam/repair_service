@@ -27,6 +27,7 @@ const decoratedPhone = computed(() => {
             </section>
             <section>
                 <a :href="'tel:'+phone">{{decoratedPhone}}</a>
+                <a href="tel:+79919464472">+7 (991) 946-44-72</a>
                 <span>Работаем без выходных с 9:00 до 21:00.</span>
             </section>
         </div>

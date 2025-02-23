@@ -21,7 +21,10 @@ const decoratedPhone = computed(() => {
                         <RouterLink to="/">
                             <img :src="data.logo" alt="">
                         </RouterLink>
-                        <a class="link" :href='"tel:"+data.phone'>{{ decoratedPhone }}</a>
+                        <div class="phones">
+                            <a class="link" :href='"tel:"+data.phone'>{{ decoratedPhone }}</a>
+                            <a class="sublink" href="tel:+79919464472">+7 (991) 946-44-72</a>
+                        </div>
                         <a class="button" :href='"tel:"+data.phone'>Позвонить</a>
                     </div>
                     <h1 v-if="!small">{{ data.title }}</h1>
@@ -41,7 +44,6 @@ const decoratedPhone = computed(() => {
 header {
     height: 100vh;
 }
-
 section.rsheader {
     height: 100vh;
     background-position: 52.5% 0;
@@ -57,27 +59,32 @@ section.rsheader {
 .rsheader img {
     width: 230px;
 }
-
 header.small {
     height: 145px;
 }
-
 .small .rsheader {
     height: 145px;
 }
-
 .rsheader h1 {
     font-weight: normal;
     font-size: 35px;
     text-align: center;
 }
-
+.rsheader .phones {
+    display: flex;
+    flex-direction: column;
+}
 .rsheader .link {
     text-decoration: none;
     color: var(--button-color);
     font-size: 30px;
 }
-
+.rsheader .sublink {
+    margin-top: 7px;
+    text-decoration: none;
+    color: var(--button-color);
+    font-size: 30px;
+}
 .rsheader .button {
     background-color: var(--button-color);
     text-decoration: none;
@@ -86,7 +93,6 @@ header.small {
     padding: 15px 30px;
     cursor: pointer;
 }
-
 .rsheader .logo_wrapper {
     display: flex;
     justify-content: space-between;
@@ -95,7 +101,6 @@ header.small {
     padding: 30px 0 10px;
     margin: 0 auto;
 }
-
 .rsheader .call {
     display: flex;
     align-items: end;
@@ -123,6 +128,11 @@ header.small {
         /* display: none; */
         font-size: 14px;
     }    
+    .rsheader .sublink {
+        /* display: none; */
+        margin-top: 4px;
+        font-size: 14px;
+    }  
     .rsheader img {
         width: 24vw;
         margin-left: 15px;
