@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import RSHeader from '@/components/RSHeader.vue';
 import RSInfo from '@/components/RSInfo.vue';
+import RSPrices from '@/components/RSPrices.vue';
 import RSItemsList from '@/components/goods/RSItemsList.vue';
 import RSAdventage from '@/components/RSAdventage.vue';
 import RSResolve from '@/components/RSResolve.vue';
@@ -16,6 +17,7 @@ import main from '@/data/main.json'
     <RSHeader :data="main.header"/>
     <RSInfo :data="main.info"/>
     <RSItemsList :data="main.goods"/>
+    <RSPrices />
     <RSAdventage :item="main.adventage"/>
     <RSResolve :data="main.resolve"/>
     <RSAck/>

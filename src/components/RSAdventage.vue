@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
     <section class="rsadv" :style="'background-image: url('+item.bg+');'">
-        <h3 v-if="item.title != null ?? item.title != ''">{{ item.title }}</h3>
+        <h3 v-if="item.title != null || item.title != ''">{{ item.title }}</h3>
         <div class="wrapper">
             <article>
                 <ul>
@@ -22,7 +22,7 @@ defineProps<{
 
 <style scoped>
 section.rsadv {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     padding: 0px 55px;
     background-position: 50% 95%;
     background-size: cover;
