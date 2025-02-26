@@ -137,6 +137,35 @@
                         "description": "Широкий функционал и безопасность"
                     }
                 ]
+            },
+            {
+                "title": "Варочные панели", 
+                "icon": "/icons/icons.svg#icon_cooking-panel",
+                "type": "hb",
+                "items": [
+                    {
+                        "title": "Электрические",
+                        "image": "/services/hob.png",
+                        "description": "Компактная альтернатива полноразмерным плитама"
+                    },
+                    {
+                        "title": "Индукционные",
+                        "image": "/services/hob.png",
+                        "description": "Безопасная, экономичная и стильная, станет украшением любой кухни"
+                    }
+                ]
+            },
+            {
+                "title": "Микроволновки", 
+                "icon": "/icons/icons.svg#icon_electric-stoves",
+                "type": "mw",
+                "items": [
+                    {
+                        "title": "Микроволновки",
+                        "image": "/services/microwave.jpg",
+                        "description": "Лаконичный дизайн и технологичность"
+                    }
+                ]
             }
         ]
     },

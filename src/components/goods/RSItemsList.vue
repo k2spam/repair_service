@@ -63,7 +63,7 @@ const tab = ref('itemblock01')
 
 <style scoped>
 section.rsitems {
-    padding: 20px 0 0;
+    padding: 20px 0;
 }
 .rsitems .rsitems__main {
     display: block;

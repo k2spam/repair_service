@@ -16,6 +16,9 @@ const repair = ref([])
         <RSSelector v-model="problems" :data="{title:'Выберите Вашу проблему', items: items.problems}"/>
         <RSSelector v-model="repair" :data="{title:'Выберите нужный ремонт', items: items.repair}"/>
         <RSAck small :ack="{problems, repair}" :item="items.type" :type="items.subtype"/>
+        <p>
+            <RouterLink to="/">Вернуться</RouterLink>
+        </p>
     </section>
 </template>
 
@@ -37,5 +40,19 @@ section.rsmodel {
 }
 .rsmodel h3 span {
     font-size: 18px;
+}
+.rsmodel p {
+    text-align: center;
+    margin: 0;
+    padding: 10px 0 30px;
+}
+.rsmodel a {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--button-color);
+    color: #fff;
+    border: 1px solid var(--button-color);
+    cursor: pointer;
+    text-decoration: none;
 }
 </style>
