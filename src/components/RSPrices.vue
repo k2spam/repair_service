@@ -42,7 +42,7 @@ section.rsprices {
     margin: 0 auto;
     padding: 15px;
 }
-.rsprices dl:nth-child(even) {
+.rsprices dl:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
 }
 .rsprices dd {

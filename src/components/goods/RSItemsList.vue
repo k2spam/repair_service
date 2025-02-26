@@ -52,7 +52,7 @@ const tab = ref('itemblock01')
                         </svg>
                         <span>{{ block.title }}</span>
                         <svg>
-                            <use xlink:href="/icons/icons.svg#icon_arrow-go"></use>
+                            <use xlink:href="/icons/icons.svg#icon_arrow-go" fill="#0094fe"></use>
                         </svg>
                     </RouterLink>
                 </li>
